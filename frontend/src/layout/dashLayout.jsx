@@ -9,7 +9,8 @@ const DashLayout = ({children}) => {
                 className="d-flex align-items-center justify-content-between px-3"
                 style={{
                     height: '10vh',
-                    background: 'linear-gradient(to right, #000000, #eeeeee)'
+                    background: 'linear-gradient(to right, #000000 75%, #eeeeee 25%)'
+
                 }}
             >
                 <Navbar />
