@@ -54,17 +54,24 @@ const DetailPage = () => {
 
     const handleSubmit = async () => {
         if (id) {
-            await updateTaskRequest(id, formData);
+           const res =  await updateTaskRequest(id, formData);
+           if (res.status === "success") {
+               navigate("/");
+           }
         } else {
-            await createTaskRequest(formData);
+           const res =  await createTaskRequest(formData);
+           if(res.status === "success") {
+               navigate("/");
+           }
         }
-        navigate("/");
     };
 
     const handleDelete = async () => {
         if (confirm("Are you sure you want to delete this task?")) {
-            await deleteTaskRequest(id);
-            navigate("/");
+            const res = await deleteTaskRequest(id);
+            if(res.status === "success") {
+                navigate("/");
+            }
         }
     };
 
