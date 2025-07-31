@@ -1,7 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
+import userAPI from "../APIStore/userAPI.js";
 
 const Navbar = () => {
+    const {logoutRequest} = userAPI()
+
+    const navigate = useNavigate();
+
+    const logoutBtn = async ()=>{
+        const res = await logoutRequest()
+        if(res.status === 'success'){
+            navigate('/login');
+        }
+    }
+
     return (
         <div className="container-fluid py-2" style={{ background: 'transparent' }}>
             <div className="row align-items-center">
@@ -24,7 +36,7 @@ const Navbar = () => {
 
                 {/* Right: Person Button (col-2) */}
                 <div className="col-2 text-end">
-                    <button className="btn btn-sm text-white d-flex align-items-center gap-2 ms-auto">
+                    <button onClick={()=>logoutBtn()} className="btn btn-sm text-white d-flex align-items-center gap-2 ms-auto">
                         <i className="bi bi-person-circle"></i>
                         <span>Person</span>
                         <i className="bi bi-caret-down-fill"></i>

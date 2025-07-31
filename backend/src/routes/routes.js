@@ -24,7 +24,7 @@ router.get('/auth/check', authMiddleware, (req, res) => {
 
 // ============Task API==============
 router.post("/create-task",authMiddleware, createTaskController);
-router.get("/task/:category/:status",authMiddleware, getAllTasksController);
+router.get("/tasks/:category/:status",authMiddleware, getAllTasksController);
 router.get("/task/:id",authMiddleware, getTaskByIdController);
 router.put("/task/:id",authMiddleware, updateTaskByIdController);
 router.delete("/task/:id",authMiddleware, deleteTaskByIdController);

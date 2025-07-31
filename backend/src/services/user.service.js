@@ -44,8 +44,6 @@ export const registrationService = async (req) => {
 };
 
 
-
-
 // loginService.js
 export const loginService = async (req, res) => {
     const { email, password } = req.body;
