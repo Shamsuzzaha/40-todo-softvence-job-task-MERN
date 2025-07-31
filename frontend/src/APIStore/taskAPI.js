@@ -19,11 +19,13 @@ const taskAPI = create((set) => ({
     },
 
     // Get tasks based on category and status
+    fullName:null,
     getTasksRequest: async (category = 'all', status = 'all') => {
         try {
             const res = await axios.get(`${baseURL}/tasks/${category}/${status}`, {
                 withCredentials: true,
             });
+            set({ fullName: res.data.fullName });
             return res.data;
         } catch (err) {
             console.error('Fetching tasks failed:', err);

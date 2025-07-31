@@ -42,6 +42,7 @@ const DashboardPage = () => {
         }
     }
 
+
     return (
         <DashLayout>
             <div className="container py-4">
@@ -100,12 +101,22 @@ const DashboardPage = () => {
                                             <h5 className="card-title mb-1">{task.category}</h5>
                                             <p className="mb-0 text-muted">{task.role}</p>
                                         </div>
-                                        <button
-                                            className="btn btn-sm btn-outline-danger"
-                                            onClick={() => deleteBtn(task._id)}
-                                        >
-                                            <i className="bi bi-trash"></i>
-                                        </button>
+
+                                        <div className="d-block">
+                                            <button
+                                                className="btn btn-sm btn-outline-warning"
+                                                onClick={() => navigate(`/edit-task/${task._id}`)}
+                                            >
+                                                <i className="bi bi-pen"></i>
+                                            </button>
+
+                                            <button
+                                                className="btn btn-sm btn-outline-danger"
+                                                onClick={() => deleteBtn(task._id)}
+                                            >
+                                                <i className="bi bi-trash"></i>
+                                            </button>
+                                        </div>
                                     </div>
 
                                     <div className="d-flex justify-content-between text-muted small">

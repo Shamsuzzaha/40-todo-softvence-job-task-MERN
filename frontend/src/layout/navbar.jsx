@@ -1,9 +1,11 @@
 import React from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 import userAPI from "../APIStore/userAPI.js";
+import taskAPI from "../APIStore/taskAPI.js";
 
 const Navbar = () => {
     const {logoutRequest} = userAPI()
+    const {fullName} = taskAPI()
 
     const navigate = useNavigate();
 
@@ -38,7 +40,7 @@ const Navbar = () => {
                 <div className="col-2 text-end">
                     <button onClick={()=>logoutBtn()} className="btn btn-sm text-white d-flex align-items-center gap-2 ms-auto">
                         <i className="bi bi-person-circle"></i>
-                        <span>Person</span>
+                        <span>{fullName}</span>
                         <i className="bi bi-caret-down-fill"></i>
                     </button>
                 </div>

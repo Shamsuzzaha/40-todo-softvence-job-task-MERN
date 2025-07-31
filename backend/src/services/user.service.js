@@ -73,6 +73,8 @@ export const loginService = async (req, res) => {
 
     return {
         status: "success",
-        message: 'Login successful'
+        message: 'Login successful',
+        fullName: user.fullName
     };
 };
+

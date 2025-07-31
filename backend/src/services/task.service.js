@@ -1,4 +1,5 @@
 import TaskModel from "../models/task.model.js";
+import UserModel from "../models/user.model.js";
 
 // Create task
 export const createTaskService = async (req) => {
@@ -29,10 +30,11 @@ export const getAllTasksService = async (req) => {
     }
 
     const data = await TaskModel.find(matchQuery);
-
+    const user = await UserModel.findOne({ email }).select("fullName");
     return {
         status: 'success',
         message: 'Tasks fetched successfully.',
+        fullName: user?.fullName,
         data: data
     };
 };
