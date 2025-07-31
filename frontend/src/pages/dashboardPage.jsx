@@ -3,6 +3,7 @@ import DashLayout from "../layout/dashLayout.jsx";
 import taskAPI from "../APIStore/taskAPI.js";
 import { useNavigate } from "react-router-dom";
 import userAPI from "../APIStore/userAPI.js";
+import Loading from "../layout/loading.jsx";
 
 const DashboardPage = () => {
     const {checkLoginStatus, isLogin} = userAPI()
@@ -12,10 +13,13 @@ const DashboardPage = () => {
     const [category, setCategory] = useState('all');
     const [status, setStatus] = useState('all');
     const [data, setData] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         (async()=>{
+            setLoading(true);
             await checkLoginStatus()
+            setLoading(false);
         })()
     }, []);
 
@@ -45,6 +49,8 @@ const DashboardPage = () => {
 
     return (
         <DashLayout>
+            <Loading loading={loading} />
+
             <div className="container py-4">
                 {/* Top filter row */}
                 <div className="d-flex flex-wrap align-items-center gap-3 mb-4">
