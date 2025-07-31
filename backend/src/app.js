@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
-import router from './routes/user.routes.js'; // adjust the path if needed
+import router from './routes/routes.js'; // adjust the path if needed
 import dotenv from 'dotenv';
 import errorMiddleware from './middlewares/error.middleware.js';
 

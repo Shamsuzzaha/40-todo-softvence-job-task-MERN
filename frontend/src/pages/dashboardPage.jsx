@@ -4,7 +4,7 @@ import DashLayout from "../layout/dashLayout.jsx";
 const DashboardPage = () => {
     return (
         <DashLayout>
-            task list
+
         </DashLayout>
     );
 };
